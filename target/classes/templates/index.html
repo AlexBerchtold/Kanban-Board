@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="/kanban/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body class="board-body">
+    <nav class="navbar glass-panel">
+        <div class="navbar-brand">
+            <i class="fa-solid fa-layer-group"></i> Kanban facitec
+        </div>
+        <div class="navbar-user">
+            <span class="user-greeting">Bienvenido, <strong th:text="${username}">User</strong>!</span>
+            <form th:action="@{/logout}" method="post" class="inline-form">
+                <button type="submit" class="btn btn-secondary btn-sm"><i class="fa-solid fa-sign-out-alt"></i>
+                    Logout</button>
+            </form>
+        </div>
+    </nav>
+
+    <main class="board-container">
+        <div class="board-header">
+            <h2>Unificación de bases de datos UNICAN</h2>
+            <button class="btn btn-primary" id="btn-create-task"><i class="fa-solid fa-plus"></i>Nueva Tarea</button>
+        </div>
+
+        <div class="kanban-grid">
+            <!-- TO DO Column -->
+            <div class="kanban-column" id="col-TO_DO" data-status="TO_DO">
+                <div class="column-header">
+                    <h3>To Do</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="column-body drop-zone">
+                    <!-- Tasks will be injected here via JS -->
+                </div>
+            </div>
+
+            <!-- DOING Column -->
+            <div class="kanban-column" id="col-DOING" data-status="DOING">
+                <div class="column-header">
+                    <h3>Doing</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="column-body drop-zone">
+                    <!-- Tasks will be injected here via JS -->
+                </div>
+            </div>
+
+            <!-- DONE Column -->
+            <div class="kanban-column" id="col-DONE" data-status="DONE">
+                <div class="column-header">
+                    <h3>Done</h3>
+                    <span class="task-count">0</span>
+                </div>
+                <div class="column-body drop-zone">
+                    <!-- Tasks will be injected here via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Task Modal -->
+    <div class="modal" id="task-modal">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h2>Crear Nueva Tarea</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="create-task-form">
+                <div class="form-group">
+                    <label for="task-title">Titulo</label>
+                    <input type="text" id="task-title" required placeholder="Task title...">
+                </div>
+                <div class="form-group">
+                    <label for="task-desc">Descripción</label>
+                    <textarea id="task-desc" rows="3" placeholder="Task description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-assignee">Asignar a</label>
+                    <select id="task-assignee" required>
+                        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username}"></option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary close-modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Tarea</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/kanban/js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\controller\WebController.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\model\Task.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\security\CustomUserDetailsService.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\config\SecurityConfig.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\model\User.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\controller\TaskController.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\KanbanApplication.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\model\TaskStatus.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\repository\UserRepository.java
+C:\WorkSpace\Kanban-Board\src\main\java\com\kanban\repository\TaskRepository.java
